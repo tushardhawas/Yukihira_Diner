@@ -2,9 +2,11 @@
   "name": "diner",
   "version": "1.0.0",
   "description": "A quick food ordering app(keeping in mind of the distance traveling we will try to make such food for you try anything",
-  "main": "index.js",
+
+  "source": "index.html",
   "scripts": {
     "start": "npx parcel index.html",
+    "build": "parcel build",
     "test": "jest"
   },
   "repository": {
