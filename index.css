@@ -90,3 +90,19 @@ li {
 .card:hover {
   transform: scale(1.05); /* Zoom effect */
 }
+
+.searchContainer{
+text-align: right;
+padding: 10px;
+/* margin: 20px; */
+background-color: #d0d3dd;
+}
+.searchInput{
+  background-color: #d0d3dd;
+  width: 150px;
+height: 20px;
+align-items: center;
+border-radius: 10px;
+border: 2px solid black;
+
+}

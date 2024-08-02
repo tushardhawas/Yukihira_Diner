@@ -1,3 +1,4 @@
+
 export const IMG_CDN_URL = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"
 export const Data = [
     {
@@ -1381,3 +1382,14 @@ export const Data = [
       },
     },
   ];
+export const RestroCard = ({ i }) => {
+  return (
+    <div className="card">
+      <img src={IMG_CDN_URL + i.cloudinaryImageId}></img>
+      <h4>{i.name}</h4>
+      <h6 style={{ color: "red" }}>⭐{i.avgRating}</h6>
+      <h6> {i.cuisines.join(",")}</h6>
+      <h6> {i.locality}</h6>
+    </div>
+  );
+};

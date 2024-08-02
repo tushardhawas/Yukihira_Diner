@@ -1,25 +1,25 @@
 import { useState } from "react";
-import { IMG_CDN_URL } from "../../Config";
 import { Data } from "../../Config";
+import { RestroCard } from "../../Config";
 
-
-const RestroCard = ({ i }) => {
-  return (
-    <div className="card">
-      <img src={IMG_CDN_URL + i.cloudinaryImageId}></img>
-      <h4>{i.name}</h4>
-      <h6 style={{ color: "red" }}>⭐{i.avgRating}</h6>
-      <h6> {i.cuisines.join(",")}</h6>
-      <h6> {i.locality}</h6>
-    </div>
+function dataFind(searchText, data) {
+  // Filter data based on searchText
+  return data.filter((item) =>
+    item.info.name.toLowerCase().includes(searchText.toLowerCase())
   );
-};
+}
 
 const Body = () => {
+  const [searchText, setSearchText] = useState("");
+  const [restaurant, setRestaurant] = useState(Data);
 
-const [searchText,setSearchText] = useState("Search")
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearchText(value);
+    const filteredData = dataFind(value, Data); // Use original Data to filter
+    setRestaurant(filteredData);
+  };
 
-  let tet = "ee";
   return (
     <>
       <div className="searchContainer">
@@ -28,14 +28,12 @@ const [searchText,setSearchText] = useState("Search")
           className="searchInput"
           placeholder="Search"
           value={searchText}
-          onChange={(e) => (setSearchText(e.target.value) )}
-        ></input>
-
-        <button>Search</button>
+          onChange={handleSearchChange}
+        />
       </div>
 
       <div className="cards">
-        {Data.map((rest, index) => (
+        {restaurant.map((rest, index) => (
           <RestroCard key={index} i={rest.info} />
         ))}
       </div>
@@ -44,3 +42,4 @@ const [searchText,setSearchText] = useState("Search")
 };
 
 export default Body;
+  
