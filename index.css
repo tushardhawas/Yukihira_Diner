@@ -6,6 +6,7 @@ html {
   font-size: var(--font-size-base);
   font-weight: 500;
   font-family: cursive;
+  scroll-timeline-axis:inherit;
 }
 :root {
   --font-size-base: 16px;
@@ -101,6 +102,7 @@ background-color: #d0d3dd;
   background-color: #d0d3dd;
   width: 150px;
 height: 20px;
+padding: 5px;
 align-items: center;
 border-radius: 10px;
 border: 2px solid black;

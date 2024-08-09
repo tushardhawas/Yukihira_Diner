@@ -1,45 +1,25 @@
-import { useState } from "react";
-import { Data } from "../../Config";
-import { RestroCard } from "../../Config";
-
-function dataFind(searchText, data) {
-  // Filter data based on searchText
-  return data.filter((item) =>
-    item.info.name.toLowerCase().includes(searchText.toLowerCase())
-  );
-}
+import { useEffect, useState } from "react";
 
 const Body = () => {
-  const [searchText, setSearchText] = useState("");
-  const [restaurant, setRestaurant] = useState(Data);
+  const { restaurant, setRestaurant } = useState("Restarunt");
 
-  const handleSearchChange = (e) => {
-    const value = e.target.value;
-    setSearchText(value);
-    const filteredData = dataFind(value, Data); // Use original Data to filter
-    setRestaurant(filteredData);
-  };
+  useEffect(() => {
+    async function getData() {
+      let data = await fetch(
+        "https://www.eazydiner.com/_next/data/KDVk5XQXqUnbEeFaG-H_7/en.json"
+      );
+      const json = await data.json();
+      return json;
+    }
 
-  return (
-    <>
-      <div className="searchContainer">
-        <input
-          type="text"
-          className="searchInput"
-          placeholder="Search"
-          value={searchText}
-          onChange={handleSearchChange}
-        />
-      </div>
+    const data = getData().then((result) => {
+      console.log(result);
+    });
 
-      <div className="cards">
-        {restaurant.map((rest, index) => (
-          <RestroCard key={index} i={rest.info} />
-        ))}
-      </div>
-    </>
-  );
+    console.log("useeffect");
+  }, []);
+  console.log("render");
+
+  return <>{restaurant}</>;
 };
-
 export default Body;
-  

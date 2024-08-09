@@ -2,10 +2,9 @@
   "name": "diner",
   "version": "1.0.0",
   "description": "A quick food ordering app(keeping in mind of the distance traveling we will try to make such food for you try anything",
-
   "source": "index.html",
   "scripts": {
-    "start": "npx parcel index.html",
+    "dev": "npx parcel index.html",
     "build": "parcel build",
     "test": "jest"
   },
@@ -16,6 +15,7 @@
   "author": "Tushar Dhawas",
   "license": "ISC",
   "dependencies": {
+    "lodash": "^4.17.21",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
