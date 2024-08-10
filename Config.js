@@ -1382,6 +1382,17 @@ export const Data = [
       },
     },
   ];
+// export const RestroCard = ({ i }) => {
+//   return (
+//     <div className="card">
+//       <img src={i.image}></img>
+//       <h4>{i.res_name}</h4>
+//       <h6 style={{ color: "red" }}>⭐{i.rating}</h6>
+//       {/* <h6> {i.cuisines.join(",")}</h6> */}
+//       <h6> {i.location}</h6>
+//     </div>
+//   );
+// };
 export const RestroCard = ({ i }) => {
   return (
     <div className="card">

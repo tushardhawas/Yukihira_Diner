@@ -1,42 +1,67 @@
 import { useEffect, useState } from "react";
+import { RestroCard } from "../../Config";
+import { Data } from "../../Config";
 
-const RestroCard = ({}) => {
-  return (
-    <div className="card">
-      <img src={IMG_CDN_URL + i.cloudinaryImageId}></img>
-      <h4>{i.name}</h4>
-      <h6 style={{ color: "red" }}>⭐{i.avgRating}</h6>
-      <h6> {i.cuisines.join(",")}</h6>
-      <h6> {i.locality}</h6>
-    </div>
+function filterRestaurant(searchText, restaurants) {
+  // Filter data based on searchText
+  return restaurants.filter((res) =>
+    res.info.name.toLowerCase().includes(searchText.toLowerCase())
   );
-};
+}
 
 const Body = () => {
-  const [restaurant, setRestaurant] = useState("Restarunt");
+  const [restaurant, setRestaurant] = useState([]);
+  const [filteredList, setFilteredList] = useState([]);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     async function getData() {
-      let data = await fetch(
-        "https://www.eazydiner.com/_next/data/KDVk5XQXqUnbEeFaG-H_7/en.json"
+      let response = await fetch(
+        "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.00090&lng=75.57350&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
       );
-      const json = await data.json();
-      return json;
-    }
+      const json = await response.json();
+      console.log(json);
 
-    const data = getData().then((result) => {
-      setRestaurant(result);
-    });
+      const fetchedData =
+        json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
+
+      // Merge fetched data with hardcoded Data
+      const combinedData = [...fetchedData, ...Data];
+
+      // Set both restaurant and filteredList with the combined data
+      setRestaurant(combinedData);
+      setFilteredList(combinedData);
+    }
+    getData();
   }, []);
+
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearchText(value);
+
+    const filteredData = filterRestaurant(value, restaurant);
+    setFilteredList(filteredData);
+  };
 
   return (
     <>
+      <div className="searchContainer">
+        <input
+          className="searchInput"
+          type="text"
+          placeholder="Search"
+          onChange={handleSearchChange}
+          value={searchText}
+        ></input>
+      </div>
+
       <div className="cards">
-        {restaurant.map((rest, index) => (
+        {filteredList.map((rest, index) => (
           <RestroCard key={index} i={rest.info} />
         ))}
       </div>
     </>
   );
 };
+
 export default Body;
