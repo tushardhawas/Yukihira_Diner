@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { RestroCard } from "../../Config";
 import { Data } from "../../Config";
+import Shim from "./Shimmer";
 
 function filterRestaurant(searchText, restaurants) {
   // Filter data based on searchText
@@ -55,11 +56,15 @@ const Body = () => {
         ></input>
       </div>
 
-      <div className="cards">
-        {filteredList.map((rest, index) => (
-          <RestroCard key={index} i={rest.info} />
-        ))}
-      </div>
+      {filteredList.length === 0 ? (
+        <Shim />
+      ) : (
+        <div className="cards">
+          {filteredList.map((rest, index) => (
+            <RestroCard key={index} i={rest.info} />
+          ))}
+        </div>
+      )}
     </>
   );
 };
