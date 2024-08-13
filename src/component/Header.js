@@ -23,12 +23,19 @@ const Navbar = () => {
       <Logo />
       <div className="navItems">
         <ul>
-          <li>Home</li>
-          <li>Top Cheifs</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/cheifs">Top Cheifs</Link>
+          </li>
           <li>
             <Link to="/deals">Deals</Link>
           </li>
-          <li>Bookings</li>
+          <li>
+            {" "}
+            <Link to="/Bookings">Bookings</Link>
+          </li>
 
           <button className="loginFeature" onClick={handleToggle}>
             {toogle ? "login" : "logout"}

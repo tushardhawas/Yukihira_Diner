@@ -17,7 +17,10 @@ const AppLayout = () => {
     </>
   );
 };
-const appRouter = createBrowserRouter([{path:"/",element:<AppLayout/>}, {path:"/deals",element:<Deals/>}]);
+const appRouter = createBrowserRouter([
+  { path: "/", element: <AppLayout /> },
+  { path: "/deals", element: <Deals /> },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
