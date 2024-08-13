@@ -1,4 +1,5 @@
 import { flatMap } from "lodash";
+import { Link } from "react-router-dom";
 import logo from "../../assets/_logo.svg";
 import { useState } from "react";
 
@@ -13,10 +14,9 @@ const Logo = () => {
 const Navbar = () => {
   const [toogle, setToggle] = useState(false);
 
-  const handleToggle=()=>{
-    setToggle((tog)=>!tog);
-
-}
+  const handleToggle = () => {
+    setToggle((tog) => !tog);
+  };
 
   return (
     <div className=" header">
@@ -25,10 +25,14 @@ const Navbar = () => {
         <ul>
           <li>Home</li>
           <li>Top Cheifs</li>
-          <li>Services</li>
+          <li>
+            <Link to="/deals">Deals</Link>
+          </li>
           <li>Bookings</li>
+
           <button className="loginFeature" onClick={handleToggle}>
-          {toogle?"login":"logout"}</button>
+            {toogle ? "login" : "logout"}
+          </button>
         </ul>
       </div>
     </div>

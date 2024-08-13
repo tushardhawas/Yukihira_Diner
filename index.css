@@ -5,9 +5,11 @@
 html {
   font-size: var(--font-size-base);
   font-weight: 500;
-  font-family: cursive;
+  font-family: "Noto Sans", sans-serif;
+
   scroll-timeline-axis: inherit;
 }
+
 :root {
   --font-size-base: 16px;
   --font-size-small: 0.875rem; /* 14px */
@@ -31,6 +33,10 @@ li {
   list-style-type: none;
 }
 
+.navItems a {
+  text-decoration: none;
+  color: #f8f9fa;
+}
 .header {
   display: flex;
   justify-content: space-between;
@@ -74,36 +80,69 @@ li {
   border-radius: 9px;
   color: #2a4ba3;
 }
+.cards {
+  display: flex; /* Use Flexbox for layout */
+  flex-wrap: wrap; /* Allow wrapping of cards */
+  justify-content: center; /* Center the cards horizontally */
+  margin: 20px; /* Margin around the card container */
+}
 
 .card {
-  width: 200px;
-  height: 250px;
-  border: 1px solid black;
-  margin: 20px;
-  padding: 10px;
-  word-wrap: break-word;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3); /* Shadow effect */
-
-  cursor: pointer;
+  width: 250px; /* Fixed width */
+  /* Remove fixed height to allow flexibility */
+  margin: 20px; /* Margin to separate cards */
+  padding: 15px; /* Increased padding for better spacing */
+  display: flex; /* Flexbox for layout */
+  flex-direction: column; /* Vertical alignment of items */
+  justify-content: space-between; /* Space between items to maintain structure */
+  align-items: center; /* Center items horizontally */
+  text-align: center; /* Center-align text */
+  box-sizing: border-box; /* Include padding and border in width/height */
+  border-radius: 8px; /* Rounded corners for a softer look */
+  background-color: #fff; /* White background for contrast */
+  overflow: hidden; /* Hide overflowed content */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+  cursor: pointer; /* Pointer cursor on hover */
+  
 }
 
-.cards {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
 .card img {
-  width: 200px;
-  height: 150px;
-  object-fit: cover;
+  width: 100%; /* Image takes full width */
+  height: 150px; /* Fixed height for the image to maintain consistency */
+  object-fit: cover; /* Cover image without distortion */
+  border-radius: 5px; /* Rounded corners for the image */
+}
+
+.card h4 {
+  margin: 10px 0; /* Space between title and other elements */
+  font-size: 1rem; /* Slightly larger font size for prominence */
+  font-weight: 600; /* Semi-bold text for better visibility */
+  color: #333; /* Consistent text color */
+  overflow: hidden; /* Prevent overflow */
+  text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+  white-space: nowrap; /* Prevent wrapping to new line */
+}
+
+.card h6 {
+  margin: 5px 0; /* Space between subtitle and other elements */
+  font-size: 0.7rem; /* Font size for subtitles */
+  color: #666; /* Softer color for less emphasis */
+  overflow: hidden; /* Prevent overflow */
+  text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+  white-space: nowrap; /* Prevent wrapping to new line */
+  /* Set a consistent height and overflow handling */
+  min-height: 20px; /* Minimum height to keep space for empty elements */
+}
+
+.card h6:first-of-type {
+  color: red; /* Highlight average rating */
 }
 
 .card:hover {
-  transform: scale(1.05); /* Zoom effect */
-}
-
-.searchContainer {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}.searchContainer {
   text-align: right;
   padding: 9px;
   /* margin: 20px; */
@@ -121,12 +160,13 @@ li {
 
 .footer {
   display: flex;
-padding-bottom: 50px;
-  align-items: end ;
+  padding-bottom: 50px;
+  align-items: end;
   margin-top: 50px;
   font-size: small;
   background-color: #5b5b5b;
   height: 125px;
   justify-content: space-between;
   padding: 25px;
+  color: #ffffff;
 }
