@@ -1,4 +1,3 @@
-import { flatMap } from "lodash";
 import { Link } from "react-router-dom";
 import logo from "../../assets/_logo.svg";
 import { useState } from "react";

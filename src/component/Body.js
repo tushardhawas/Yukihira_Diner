@@ -24,7 +24,7 @@ const Body = () => {
       console.log(json);
 
       const fetchedData =
-        json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
+        json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants;
 
       // Merge fetched data with hardcoded Data
       const combinedData = [...fetchedData, ...Data];
