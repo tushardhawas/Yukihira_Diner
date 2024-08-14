@@ -1,6 +1,7 @@
 import Navbar from "./Header";
 import Footer from "./Footer";
 import React from "react";
+import "./Chef.css";
 
 
 export const Chef = () => {
@@ -8,7 +9,7 @@ export const Chef = () => {
     <>
       <Navbar />
       <div className="chefContainer">
-      <video src="https://videos.pexels.com/video-files/3209765/3209765-uhd_2560_1440_25fps.mp4" width={1200} height={300} controls></video>
+      <video id="background-video" src="https://videos.pexels.com/video-files/3209765/3209765-uhd_2560_1440_25fps.mp4" autoPlay loop muted></video>
       </div>
       <Footer />
     </>
