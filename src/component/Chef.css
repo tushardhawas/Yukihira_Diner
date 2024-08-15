@@ -1,20 +1,80 @@
-/* Container for the video */
 .chefContainer {
-    position: relative;
-    width: 100%;
-    height: 100vh; /* Full height of the viewport */
-    overflow: hidden;
-  }
-  
-  /* Video settings */
-  #background-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the video covers the entire container */
-    transform: translate(-50%, -50%);
-    z-index: -1;
-  }
-  
+  padding: 50px 20px;
+  text-align: center;
+  background: linear-gradient(to bottom, #f7f9fc, #dfe3e9);
+}
+
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  color: #2a4ba3;
+  font-family: 'Merriweather', serif;
+}
+
+h2 {
+  font-size: 1.7rem;
+  color: #444;
+  margin-bottom: 40px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.chef_card {
+  width: 270px;
+  margin: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.chef_card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+}
+
+.chef_card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.chef_card h4 {
+  font-size: 1.5rem;
+  color: #2a4ba3;
+  margin-top: 15px;
+  font-family: 'Merriweather', serif;
+}
+
+.chef_card h6 {
+  font-size: 1.1rem;
+  color: #555;
+  margin-top: 10px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.chef_card p {
+  font-size: 0.95rem;
+  color: #777;
+  margin-top: 15px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.signatureDish {
+  margin-top: 20px;
+  background-color: #2a4ba3;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+}

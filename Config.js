@@ -1405,3 +1405,39 @@ export const RestroCard = ({ i }) => {
     </div>
   );
 };
+
+export const chefs = [
+  { 
+    name: "Chef Killua Ramsay", 
+    description: "A legend in the culinary world, known for his perfection, flair, and relentless pursuit of excellence in modern cuisine. With numerous restaurants across the globe, he brings Michelin-starred flair to every dish he crafts.", 
+    specialty: "Modern British Cuisine", 
+    experience: "Over 20 years of crafting unforgettable he is him you cant base him you can cant poiu onf reij ewoin wwne wnuw wj9iqpm  dining experiences with a focus on quality ingredients and bold flavors.", 
+    signatureDish: "Chicken Wellington Rice",
+    image: "https://images.pexels.com/photos/4253298/pexels-photo-4253298.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+  },
+  // { 
+  //   name: "Chef Thomas Keller", 
+  //   description: "Michelin-starred chef with a passion for French cuisine, Keller is revered for his finesse, creativity, and precision in the kitchen, as well as for his iconic Napa Valley restaurant, The French Laundry.", 
+  //   specialty: "French Fine Dining", 
+  //   experience: "A culinary giant with over 30 years in the industry, Keller is known for elevating the dining experience through artful presentations and meticulous attention to detail.", 
+  //   signatureDish: "Oysters and Pearls",
+  //   image: "https://images.pexels.com/photos/8511869/pexels-photo-8511869.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+  // },
+  { 
+    name: "Chef Massimo Bottura", 
+    description: "Bottura is an avant-garde chef known for reimagining classic Italian dishes. His creativity and deep connection to Italian tradition have earned him global acclaim and multiple Michelin stars.", 
+    specialty: "Modern Italian Cuisine", 
+    experience: "With over 25 years of culinary innovation, Bottura combines traditional Italian flavors with modern techniques to create a dining experience that is as thoughtful as it is delicious.", 
+    signatureDish: "Five Ages of Parmigiano Reggiano",
+    image: "https://images.pexels.com/photos/13869898/pexels-photo-13869898.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+  },
+  { 
+    name: "Chef Hélène Darroze", 
+    description: "A celebrated French chef, Darroze is known for her modern interpretations of classic French cuisine. Her cooking combines tradition with creativity, earning her accolades from food critics worldwide.", 
+    specialty: "Modern French Cuisine", 
+    experience: "With over 20 years in the culinary scene, Darroze has crafted a reputation for herself as a culinary innovator, with a focus on locally-sourced ingredients and artisanal techniques.", 
+    signatureDish: "Pigeon with Spiced Bread and Cocoa Sauce",
+    image: "https://images.pexels.com/photos/15656547/pexels-photo-15656547/free-photo-of-a-chef-preparing-a-meal.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+  }
+];
+

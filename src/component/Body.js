@@ -23,8 +23,11 @@ const Body = () => {
       const json = await response.json();
       console.log(json);
 
-      const fetchedData =
-        json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants;
+      let fetchedData =
+        json.data.cards[2].card.card.gridElements?.infoWithStyle?.restaurants;
+        if(fetchedData === undefined){
+          fetchedData = json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
+        }
 
       // Merge fetched data with hardcoded Data
       const combinedData = [...fetchedData, ...Data];

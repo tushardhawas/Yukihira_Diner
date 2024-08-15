@@ -32,13 +32,14 @@ const Navbar = () => {
             <Link to="/deals">Deals</Link>
           </li>
           <li>
-            {" "}
             <Link to="/Bookings">Bookings</Link>
           </li>
 
-          <button className="loginFeature" onClick={handleToggle}>
-            {toogle ? "login" : "logout"}
-          </button>
+          
+            <button className="loginFeature" onClick={handleToggle}>
+              {toogle ? "login" : "logout"}
+            </button>
+          
         </ul>
       </div>
     </div>
