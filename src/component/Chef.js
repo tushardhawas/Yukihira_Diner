@@ -1,10 +1,30 @@
 import Navbar from "./Header";
 import Footer from "./Footer";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Chef.css";
 import { chefs } from "../../Config";
+import { join } from "lodash";
 
 export const Chef = () => {
+  const [chef,setChef] = useState([])
+
+  useEffect(()=>{
+
+    async function getData(){
+
+      const response = await fetch("https://www.coox.in/_next/data/0rua7yZP4HKJ1_22sYttA/index.json");
+      const json = await response.json();
+
+      console.log(json)
+
+      const fetchDataChef =  json.pageProps?.topCooks
+      console.log(fetchDataChef);
+      setChef(fetchDataChef);
+    }
+
+    getData();
+  },[])
+
   return (
     <>
       <Navbar />
