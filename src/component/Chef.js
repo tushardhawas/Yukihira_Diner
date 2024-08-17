@@ -2,11 +2,10 @@ import Navbar from "./Header";
 import Footer from "./Footer";
 import React, { useEffect, useState } from "react";
 import "./Chef.css";
-import { chefs } from "../../Config";
-import { join } from "lodash";
+import { chef } from "../../Config";
 
 export const Chef = () => {
-  const [chef,setChef] = useState([])
+  const [chefs,setChef] = useState([])
 
   useEffect(()=>{
 
