@@ -31,7 +31,7 @@ export const Chef = () => {
         <h1>Meet Our Top Chefs</h1>
         <h2>"Elevating Every Plate with Uncompromising Culinary Excellence."</h2>
         <div className="cards">
-          {chefs.map((chef, index) => (
+          {chef.map((chef, index) => (
             <div key={index} className="chef_card">
               <img src={chef.image} alt={chef.name} />
               <h4>{chef.name}</h4>

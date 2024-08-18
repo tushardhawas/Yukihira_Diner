@@ -1406,7 +1406,7 @@ export const RestroCard = ({ i }) => {
   );
 };
 
-export const chefs = [
+export const chef = [
   { 
     name: "Chef Killua Ramsay", 
     description: "A legend in the culinary world, known for his perfection, flair, and relentless pursuit of excellence in modern cuisine. With numerous restaurants across the globe, he brings Michelin-starred flair to every dish he crafts.", 
