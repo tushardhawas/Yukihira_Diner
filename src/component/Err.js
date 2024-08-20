@@ -7,6 +7,7 @@ export const Err = () => {
     <>
       <h1>Something Went wrong</h1>
       <h2>Please Relaod</h2>
+      <h3> thanks </h3>
     </>
   );
 };
