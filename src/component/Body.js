@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { RestroCard } from "../../Config";
 import { Data } from "../../Config";
 import Shim from "./Shimmer";
+import {Link} from "react-router-dom";
 
 function filterRestaurant(searchText, restaurants) {
   // Filter data based on searchText
@@ -21,16 +22,17 @@ const Body = () => {
         "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.00090&lng=75.57350&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
       );
       const json = await response.json();
-      console.log(json);
 
       let fetchedData =
         json.data.cards[2].card.card.gridElements?.infoWithStyle?.restaurants;
-        if(fetchedData === undefined){
-          fetchedData = json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
-        }
+      if (fetchedData === undefined) {
+        fetchedData =
+          json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
+      }
+      console.log(fetchedData);
 
       // Merge fetched data with hardcoded Data
-      const combinedData = [...fetchedData, ...Data];
+      const combinedData = [...fetchedData,...Data];
 
       // Set both restaurant and filteredList with the combined data
       setRestaurant(combinedData);
@@ -63,8 +65,12 @@ const Body = () => {
         <Shim />
       ) : (
         <div className="cards">
-          {filteredList.map((rest, index) => (
-            <RestroCard key={index} i={rest.info} />
+          {filteredList.map((rest ,index) => (
+          
+            <Link to={"/restaurant/"+ rest.info.id} key={index}>
+            {console.log(rest.info.id)}
+              <RestroCard  i={rest.info} />
+            </Link>
           ))}
         </div>
       )}

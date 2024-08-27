@@ -1,6 +1,4 @@
 import React from "react";
-import Footer from "./Footer";
-import Navbar from "./Header";
 import "./Deals.css";
 
 const dealsData = [
@@ -33,7 +31,6 @@ const dealsData = [
 export const Deals = () => {
   return (
     <>
-      <Navbar />
       
       
       <div className="head">
@@ -56,7 +53,6 @@ export const Deals = () => {
           ))}
         </div>
       </div>
-      <Footer />
     </>
   );
 };
