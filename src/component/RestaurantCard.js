@@ -17,7 +17,6 @@ export const RestaurantCard = () => {
         const fetchData =
           json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[2].card.card
             ?.itemCards;
-        console.log(fetchData);
         setResData(fetchData);
       } catch (error) {
         console.error("Error fetching data:", error);

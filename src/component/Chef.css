@@ -1,19 +1,19 @@
 .chefContainer {
   padding: 50px 20px;
   text-align: center;
-  background: linear-gradient(to bottom, #f7f9fc, #dfe3e9);
+  background: #F1FAEE; /* Very light greenish background */
 }
 
 h1 {
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   margin-bottom: 10px;
-  color: #2a4ba3;
+  color: #264653; /* Charcoal text color for title */
   font-family: 'Merriweather', serif;
 }
 
 h2 {
-  font-size: 1.7rem;
-  color: #444;
+  font-size: 1.5rem;
+  color: #2A9D8F; /* Jade green for subtitle */
   margin-bottom: 40px;
   font-family: 'Open Sans', sans-serif;
 }
@@ -29,16 +29,16 @@ h2 {
   width: 270px;
   margin: 20px;
   padding: 20px;
-  background-color: #fff;
+  background-color: #fff; /* White card background */
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow for a lighter feel */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
   cursor: pointer;
 }
 
 .chef_card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2); /* Slightly less intense shadow on hover */
 }
 
 .chef_card img {
@@ -50,29 +50,29 @@ h2 {
 
 .chef_card h4 {
   font-size: 1.5rem;
-  color: #2a4ba3;
+  color: #264653; /* Charcoal color for chef's name */
   margin-top: 15px;
   font-family: 'Merriweather', serif;
 }
 
 .chef_card h6 {
   font-size: 1.1rem;
-  color: #555;
+  color: #2A9D8F; /* Jade green for specialty */
   margin-top: 10px;
   font-family: 'Open Sans', sans-serif;
 }
 
 .chef_card p {
   font-size: 0.95rem;
-  color: #777;
+  color: #A8DADC; /* Soft cyan for experience */
   margin-top: 15px;
   font-family: 'Open Sans', sans-serif;
 }
 
 .signatureDish {
   margin-top: 20px;
-  background-color: #2a4ba3;
-  color: #fff;
+  background-color: #457B9D; /* Desaturated blue background for signature dish */
+  color: #F1FAEE; /* Very light greenish text color */
   padding: 10px;
   border-radius: 8px;
   font-size: 1rem;

@@ -1398,14 +1398,13 @@ export const Data = [
 
 export const RestroCard = ({ i }) => {
   return (
-   
-      <div className="card">
-        <img src={IMG_CDN_URL + i.cloudinaryImageId}></img>
-        <h4>{i.name}</h4>
-        <h6 style={{ color: "red" }}>⭐{i.avgRating}</h6>
-        <h6> {i.cuisines.join(",")}</h6>
-        <h6> {i.locality}</h6>
-      </div>
+    <div className="card">
+      <img src={IMG_CDN_URL + i.cloudinaryImageId}></img>
+      <div className="title">{i.name}</div>
+      <div className="rating">⭐{i.avgRating}</div>
+      <div className="cuisines">{i.cuisines.join(",")}</div>
+      <div className="locality">{i.locality}</div>
+    </div>
   );
 };
 

@@ -31,13 +31,13 @@ const dealsData = [
 export const Deals = () => {
   return (
     <>
-      
-      
-      <div className="head">
-        <h1>"Transforming Every Special Moment with <br></br>Unrivaled Culinary Excellence and Passion."</h1>
-      </div>
-      <div className="tagline"><button className="taglineButton">Secure Your Table </button></div>
       <div className="deals-page">
+      <div className="head">
+          <h1>
+            "Transforming Every Special Moment with <br /> Unrivaled Culinary Excellence and Passion."
+          </h1>
+        </div>
+       
         <div className="deals-container">
           {dealsData.map((deal, index) => (
             <div className="deal-card" key={index}>
@@ -45,13 +45,16 @@ export const Deals = () => {
               <div className="deal-info">
                 <h2>{deal.title}</h2>
                 <p>{deal.description}</p>
-                <button className="view-details">View Details</button>
-                <button className="apply-offer">Apply Offer</button>
+                <div className="deal-actions">
+                  <button className="view-details">View Details</button>
+                  <button className="apply-offer">Apply Offer</button>
+                </div>
               </div>
               <div className="deal-discount">{deal.discount}</div>
             </div>
           ))}
         </div>
+       
       </div>
     </>
   );
