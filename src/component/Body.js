@@ -28,11 +28,17 @@ const Body = () => {
           json.data.cards[2].card.card.gridElements?.infoWithStyle?.restaurants;
         if (fetchedData === undefined) {
           fetchedData =
-            json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants;
+            json.data.cards[4].card.card.gridElements?.infoWithStyle?.restaurants;
         }
 
+let combinedData =[];
+          if(fetchedData){
+
+            combinedData = [...fetchedData, ...Data];
+          }else{
+             combinedData = [Data];
+          }
         // Merge fetched data with hardcoded Data
-        const combinedData = [...fetchedData, ...Data];
 
         // Set both restaurant and filteredList with the combined data
         setRestaurant(combinedData);

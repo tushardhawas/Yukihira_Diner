@@ -6,8 +6,14 @@ import Footer from "./component/Footer";
 import Chef from "./component/Chef";
 import { Err } from "./component/Err";
 import { Deals } from "./component/Deals";
-import { createBrowserRouter, RouterProvider, Outlet, useParams } from "react-router-dom";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+  useParams,
+} from "react-router-dom";
 import { RestaurantCard } from "./component/RestaurantCard";
+import LoginPage from "./component/LoginPage";
 
 const AppLayout = () => {
   return (
@@ -15,7 +21,7 @@ const AppLayout = () => {
       <>
         <Navbar />
         <Outlet />
-         <Footer />
+        <Footer />
       </>
     </>
   );
@@ -33,17 +39,27 @@ const appRouter = createBrowserRouter([
       {
         path: "/deals",
         element: <Deals />,
-      },{
+      },
+      {
         path: "/cheifs",
         element: <Chef />,
-      }, {
+      },
+      {
         path: "/restaurant/:id",
         element: <RestaurantCard />,
       },
+      
     ],
-  },
- 
+    
+  },{
+    path: "/login",
+    element: <LoginPage />,
+    errorElement: <Err />,
+    
+  }
 ]);
+
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

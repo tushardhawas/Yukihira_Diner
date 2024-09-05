@@ -36,9 +36,9 @@ const Navbar = () => {
           </li>
 
           
-            <button className="loginFeature" onClick={handleToggle}>
+         <Link to="/login">     <button className="loginFeature" onClick={handleToggle}>
               {toogle ? "login" : "logout"}
-            </button>
+            </button></Link>
           
         </ul>
       </div>
