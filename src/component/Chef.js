@@ -1,24 +1,29 @@
 import React, { useEffect, useState } from "react";
 import "./Chef.css";
-import { chef } from "../../Config";
+import { chef } from "../utils/Config";
 
 export const Chef = () => {
   const [chefs, setChef] = useState([]);
 
   useEffect(() => {
-    async function getData() {
-      const response = await fetch(
-        "https://www.coox.in/_next/data/0rua7yZP4HKJ1_22sYttA/index.json"
-      );
-      const json = await response.json();
-      console.log(json);
+    try {
+      async function getData() {
+        const response = await fetch(
+          "https://www.coox.in/_next/data/0rua7yZP4HKJ1_22sYttA/index.json"
+        );
+        const json = await response.json();
+        console.log(json);
+  
+        const fetchDataChef = json.pageProps?.topCooks;
+        console.log(fetchDataChef);
+        setChef(fetchDataChef);
+        getData();
+      }
+      } catch (error) {
+        console.log(error);
+      }
+    
 
-      const fetchDataChef = json.pageProps?.topCooks;
-      console.log(fetchDataChef);
-      setChef(fetchDataChef);
-    }
-
-    getData();
   }, []);
 
   return (

@@ -16,6 +16,7 @@ max-width: 100%;
 min-height: 480px;
 }
 
+  
 .container p{
 font-size: 14px;
 line-height: 20px;
@@ -28,7 +29,7 @@ font-size: 12px;
 }
 
 .container a{
-color: #333;
+color: #fff;
 font-size: 13px;
 text-decoration: none;
 margin:15px 0 10px;
@@ -79,6 +80,19 @@ position: absolute;
 top: 0;
 height: 100%;
 transition: all 0.6s ease-in-out;
+}
+.butto-link {
+    background-color: #512da8;
+    color: #fff;
+    font-size: 12px;
+    padding:10px 45px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top:10px ;
+    cursor: pointer;
 }
 
 .sign-in{

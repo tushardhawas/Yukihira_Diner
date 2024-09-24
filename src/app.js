@@ -14,6 +14,7 @@ import {
 } from "react-router-dom";
 import { RestaurantCard } from "./component/RestaurantCard";
 import LoginPage from "./component/LoginPage";
+import BookingClass from "./component/BookingClass";
 
 const AppLayout = () => {
   return (
@@ -47,6 +48,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurant/:id",
         element: <RestaurantCard />,
+      },
+      {
+        path: "/Bookings",
+        element: <BookingClass />,
       },
       
     ],

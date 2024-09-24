@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { RestroCard } from "../../Config";
-import { Data } from "../../Config";
+import { RestroCard, RESTAURANTS } from "../utils/Config";
+import { Data } from "../utils/Config";
 import Shim from "./Shimmer";
 import { Link } from "react-router-dom";
+import useFetchRes from "../utils/useFetchRes";
 
 function filterRestaurant(searchText, restaurants) {
-  // Filter data based on searchText
   return restaurants.filter((res) =>
     res.info.name.toLowerCase().includes(searchText.toLowerCase())
   );
@@ -16,39 +16,17 @@ const Body = () => {
   const [filteredList, setFilteredList] = useState([]);
   const [searchText, setSearchText] = useState("");
 
-  useEffect(() => {
-    async function getData() {
-      try {
-        let response = await fetch(
-          "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.00090&lng=75.57350&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-        );
-        const json = await response.json();
-
-        let fetchedData =
-          json.data.cards[2].card.card.gridElements?.infoWithStyle?.restaurants;
-        if (fetchedData === undefined) {
-          fetchedData =
-            json.data.cards[4].card.card.gridElements?.infoWithStyle?.restaurants;
-        }
-
-let combinedData =[];
-          if(fetchedData){
-
-            combinedData = [...fetchedData, ...Data];
-          }else{
-             combinedData = [Data];
-          }
-        // Merge fetched data with hardcoded Data
-
-        // Set both restaurant and filteredList with the combined data
+  const combinedData = useFetchRes();
+  try {
+    useEffect(() => {
+      if (combinedData.length > 0) {
         setRestaurant(combinedData);
-        setFilteredList(combinedData);
-      } catch (error) {
-        console.error("you got an error ", error);
+        setFilteredList(combinedData); // Initially set the filtered list to the full restaurant list
       }
-    }
-    getData();
-  }, []);
+    }, [combinedData]);
+  } catch (error) {
+    console.error("you got an error ", error);
+  }
 
   const handleSearchChange = (e) => {
     const value = e.target.value;

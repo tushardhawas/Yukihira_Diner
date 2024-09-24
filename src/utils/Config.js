@@ -1,7 +1,10 @@
-import { Link } from "react-router-dom";
 
 export const IMG_CDN_URL =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
+
+export const RESTAURANTS =
+  "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.00090&lng=75.57350&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
+
 export const Data = [
   {
     info: {
@@ -1384,17 +1387,6 @@ export const Data = [
     },
   },
 ];
-// export const RestroCard = ({ i }) => {
-//   return (
-//     <div className="card">
-//       <img src={i.image}></img>
-//       <h4>{i.res_name}</h4>
-//       <h6 style={{ color: "red" }}>⭐{i.rating}</h6>
-//       {/* <h6> {i.cuisines.join(",")}</h6> */}
-//       <h6> {i.location}</h6>
-//     </div>
-//   );
-// };
 
 export const RestroCard = ({ i }) => {
   return (
