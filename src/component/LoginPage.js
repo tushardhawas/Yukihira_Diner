@@ -1,102 +1,72 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./LoginPage.css"; // Import your CSS file here
 
 const LoginPage = () => {
   const [isActive, setIsActive] = useState(false);
 
-  const handleRegisterClick = () => {
-    setIsActive(true);
-  };
-
-  const handleLoginClick = () => {
-    setIsActive(false);
+  const handleToggle = () => {
+    setIsActive((prev) => !prev);
   };
 
   return (
-    <div className="box">
-      <div className={`container ${isActive ? "active" : ""}`} id="container">
-        <div className="form-container sign-up">
+    <div className="flex justify-center items-center h-screen bg-gray-100">
+      <div className={`bg-white rounded-2xl shadow-lg w-full max-w-lg transition-transform duration-500 ${isActive ? "transform translate-x-full" : ""}`}>
+        <div className={`p-8 transition-opacity duration-500 ${isActive ? "opacity-0" : "opacity-100"}`}>
+          <h1 className="text-2xl font-bold mb-6">Sign In</h1>
           <form>
-            <h1>Create Account</h1>
-            <div className="social-icons">
-              <a href="#" className="icon">
-                <i className="fa-brands fa-google-plus-g"></i>
-              </a>
-              <a href="#" className="icon">
-                <i className="fa-brands fa-facebook-f"></i>
-              </a>
-              <a href="#" className="icon">
-                <i className="fa-brands fa-github"></i>
-              </a>
-              <a href="#" className="icon">
-                <i className="fa-brands fa-linkedin-in"></i>
-              </a>
-            </div>
-            <span>or use your email for registration</span>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button className="hidden" id="login">
-              <Link to="/" className="butto-link">
-                Sign Up
-              </Link>
-            </button>          </form>
-        </div>
-        <div className="form-container sign-in">
-          <form>
-            <h1>Sign In</h1>
-            <div className="social-icons">
-              <a href="#" className="icon">
-                <i className="fa-brands fa-google-plus-g"></i>
-              </a>
-              <a href="#" className="icon">
-                <i className="fa-brands fa-facebook-f"></i>
-              </a>
-              <a href="#" className="icon">
-                <i className="fa-brands fa-github"></i>
-              </a>
-              <a href="#" className="icon">
-                <i className="fa-brands fa-linkedin-in"></i>
-              </a>
-            </div>
-            <span>or use your email password</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <a href="#">Forgot Your Password?</a>
-            <button className="hidden" id="login">
-              <Link to="/" className="butto-link">
-                Sign In
-              </Link>
+            <input
+              type="email"
+              placeholder="Email"
+              className="w-full p-3 border border-gray-300 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              className="w-full p-3 border border-gray-300 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
+            />
+            <Link to="#" className="text-purple-600 mb-4 block hover:underline">
+              Forgot your password?
+            </Link>
+            <button className="w-full bg-purple-600 text-white py-2 rounded-md hover:bg-purple-700 transition duration-200">
+            <Link to="/">Sign In</Link>
             </button>
           </form>
+          <p className="mt-4 text-center">
+            Don't have an account?{" "}
+            <button onClick={handleToggle} className="text-purple-600 hover:underline">
+              Sign Up
+            </button>
+          </p>
         </div>
-        <div className="toggle-container">
-          <div className="toggle">
-            <div className="toggle-panel toggle-left">
-              <h1>Welcome Back!</h1>
-              <p>
-                Enter your personal details to use all of the site's features
-              </p>
-              <button className="hidden" id="login" onClick={handleLoginClick}>
-                Sign In
-              </button>
-            </div>
-            <div className="toggle-panel toggle-right">
-              <h1>Hello, Friend!</h1>
-              <p>
-                Register with your personal details to use all of the site's
-                features
-              </p>
-              <button
-                className="hidden"
-                id="register"
-                onClick={handleRegisterClick}
-              >
-                Sign Up
-              </button>
-            </div>
-          </div>
+
+        <div className={`p-8 transition-opacity duration-500 ${isActive ? "opacity-100" : "opacity-0"}`}>
+          <h1 className="text-2xl font-bold mb-6">Create Account</h1>
+          <form>
+            <input
+              type="text"
+              placeholder="Name"
+              className="w-full p-3 border border-gray-300 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              className="w-full p-3 border border-gray-300 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              className="w-full p-3 border border-gray-300 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
+            />
+            <button className="w-full bg-purple-600 text-white py-2 rounded-md hover:bg-purple-700 transition duration-200">
+              Sign Up
+            </button>
+          </form>
+          <p className="mt-4 text-center">
+            Already have an account?{" "}
+            <button onClick={handleToggle} className="text-purple-600 hover:underline">
+              Sign In
+            </button>
+          </p>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
-import "./Shimmer.css";
+import './Shimmer.css';
+
 const Shim = () => {
   return (
     <>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Navbar from "./component/Header";
 import Body from "./component/Body";
@@ -14,7 +14,8 @@ import {
 } from "react-router-dom";
 import { RestaurantCard } from "./component/RestaurantCard";
 import LoginPage from "./component/LoginPage";
-import BookingClass from "./component/BookingClass";
+
+const RecipeAI = lazy(() => import("./component/RecipeAI"));
 
 const AppLayout = () => {
   return (
@@ -51,20 +52,21 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/Bookings",
-        element: <BookingClass />,
+
+        element: (
+          <Suspense>
+            <RecipeAI />
+          </Suspense>
+        ),
       },
-      
     ],
-    
-  },{
+  },
+  {
     path: "/login",
     element: <LoginPage />,
     errorElement: <Err />,
-    
-  }
+  },
 ]);
-
-
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

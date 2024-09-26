@@ -1,4 +1,3 @@
-
 export const IMG_CDN_URL =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
@@ -1390,15 +1389,30 @@ export const Data = [
 
 export const RestroCard = ({ i }) => {
   return (
-    <div className="card">
-      <img src={IMG_CDN_URL + i.cloudinaryImageId}></img>
-      <div className="title">{i.name}</div>
-      <div className="rating">⭐{i.avgRating}</div>
-      <div className="cuisines">{i.cuisines.join(",")}</div>
-      <div className="locality">{i.locality}</div>
+    <div className="flex flex-col text-[#006D77] shadow-lg p-4 bg-white rounded-lg w-auto h-[370px] transition-transform transform hover:scale-105 hover:shadow-xl">
+      <img
+        className="w-72 h-72 object-cover rounded-lg transition-transform duration-300 ease-in-out "
+        src={IMG_CDN_URL + i.cloudinaryImageId}
+        alt="Image description"
+      />
+
+      <div className="mt-4 text-2xl font-semibold max-w-xs">{i.name}</div>
+
+      <div className="flex items-center mt-2 text-base">
+        <span className="mr-1">⭐</span>
+        <span>{i.avgRating}</span>
+      </div>
+
+      <div className="text-lg text-[#83C5BE] max-w-xs mt-2">
+        {i.cuisines.join(", ")}
+      </div>
+
+      <div className="text-base text-[#E29578] mt-2">{i.locality}</div>
     </div>
   );
 };
+
+
 
 export const chef = [
   {
@@ -1441,5 +1455,32 @@ export const chef = [
     signatureDish: "Pigeon with Spiced Bread and Cocoa Sauce",
     image:
       "https://images.pexels.com/photos/15656547/pexels-photo-15656547/free-photo-of-a-chef-preparing-a-meal.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+  },
+];
+
+export const dealsData = [
+  {
+    title: "Gourmet Dinner for Two",
+    description:
+      "Enjoy a special evening with a gourmet dinner for two, prepared by our top chef.",
+    imageUrl:
+      "https://images.pexels.com/photos/6770737/pexels-photo-6770737.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    discount: "20% OFF",
+  },
+  {
+    title: "Exclusive Chef's Special",
+    description:
+      "Taste the exclusive Chef's Special, made with fresh, locally-sourced ingredients.",
+    imageUrl:
+      "https://images.pexels.com/photos/5878433/pexels-photo-5878433.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    discount: "15% OFF",
+  },
+  {
+    title: "Weekend Brunch Bonanza",
+    description:
+      "Indulge in a lavish weekend brunch at our diner, with an array of delightful dishes.",
+    imageUrl:
+      "https://images.pexels.com/photos/14009280/pexels-photo-14009280.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    discount: "25% OFF",
   },
 ];

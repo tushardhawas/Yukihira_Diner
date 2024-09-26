@@ -1,62 +1,52 @@
 import React from "react";
-import "./Deals.css";
-
-const dealsData = [
-  {
-    title: "Gourmet Dinner for Two",
-    description:
-      "Enjoy a special evening with a gourmet dinner for two, prepared by our top chef.",
-    imageUrl:
-      "https://images.pexels.com/photos/6770737/pexels-photo-6770737.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    discount: "20% OFF",
-  },
-  {
-    title: "Exclusive Chef's Special",
-    description:
-      "Taste the exclusive Chef's Special, made with fresh, locally-sourced ingredients.",
-    imageUrl:
-      "https://images.pexels.com/photos/5878433/pexels-photo-5878433.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    discount: "15% OFF",
-  },
-  {
-    title: "Weekend Brunch Bonanza",
-    description:
-      "Indulge in a lavish weekend brunch at our diner, with an array of delightful dishes.",
-    imageUrl:
-      "https://images.pexels.com/photos/14009280/pexels-photo-14009280.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    discount: "25% OFF",
-  },
-];
+import { dealsData } from "../utils/Config";
 
 export const Deals = () => {
   return (
-    <>
-      <div className="deals-page">
-      <div className="head">
-          <h1>
-            "Transforming Every Special Moment with <br /> Unrivaled Culinary Excellence and Passion."
-          </h1>
-        </div>
-       
-        <div className="deals-container">
-          {dealsData.map((deal, index) => (
-            <div className="deal-card" key={index}>
-              <img src={deal.imageUrl} alt={deal.title} />
-              <div className="deal-info">
-                <h2>{deal.title}</h2>
-                <p>{deal.description}</p>
-                <div className="deal-actions">
-                  <button className="view-details">View Details</button>
-                  <button className="apply-offer">Apply Offer</button>
+    <div className="p-6 bg-[#EDF6F9]">
+      <div className="text-center mb-8">
+        <h1 className="text-4xl font-bold text-[#006D77] mb-4">
+          "Transforming Every Special Moment with <br /> Unrivaled Culinary Excellence and Passion."
+        </h1>
+        <p className="text-lg text-gray-600">
+          Discover exclusive offers that elevate your dining experience!
+        </p>
+      </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {dealsData.map((deal, index) => (
+          <div
+            className="deal-card relative bg-white rounded-lg overflow-hidden shadow-md transition-transform transform hover:scale-105"
+            key={index}
+          >
+            <img
+              className="w-full h-48 object-cover rounded-t-lg transition-opacity duration-300 hover:opacity-80"
+              src={deal.imageUrl}
+              alt={deal.title}
+            />
+            <div className="p-6">
+              <h2 className="text-2xl font-semibold text-[#006D77] hover:text-[#83C5BE] transition-colors duration-200">
+                {deal.title}
+              </h2>
+              <p className="text-gray-700 mt-2">{deal.description}</p>
+              <div className="flex justify-between items-center mt-4">
+                <div className="deal-discount text-xl font-bold text-[#E29578]">
+                  {deal.discount}
+                </div>
+                <div className="deal-actions space-x-2">
+                  <button className="bg-[#83C5BE] text-white rounded-full px-4 py-2 shadow transition duration-200 hover:bg-[#006D77] transform hover:scale-105">
+                    View Details
+                  </button>
+                  <button className="bg-[#E29578] text-white rounded-full px-4 py-2 shadow transition duration-200 hover:bg-[#FFDDD2] transform hover:scale-105">
+                    Apply Offer
+                  </button>
                 </div>
               </div>
-              <div className="deal-discount">{deal.discount}</div>
             </div>
-          ))}
-        </div>
-       
+            <div className="absolute inset-0 bg-gradient-to-r from-[#83C5BE] to-[#E29578] opacity-30 rounded-lg transform scale-0 transition-all duration-300 hover:scale-100" />
+          </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 };
 
