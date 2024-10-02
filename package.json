@@ -5,7 +5,7 @@
   "source": "index.html",
   "scripts": {
     "dev": "npx parcel index.html",
-    "build": "parcel build",
+    "build": "npx parcel build",
     "test": "jest"
   },
   "repository": {
