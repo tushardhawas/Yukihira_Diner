@@ -1387,7 +1387,6 @@ export const Data = [
   },
 ];
 
-import { IMG_CDN_URL } from "../utils/Config"; // Ensure this path is correct
 
 export const RestroCard = ({ i }) => {
   return (
