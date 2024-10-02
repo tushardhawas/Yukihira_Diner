@@ -9,61 +9,65 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className={`bg-white rounded-2xl shadow-lg w-full max-w-lg transition-transform duration-500 ${isActive ? "transform translate-x-full" : ""}`}>
-        <div className={`p-8 transition-opacity duration-500 ${isActive ? "opacity-0" : "opacity-100"}`}>
-          <h1 className="text-2xl font-bold mb-6">Sign In</h1>
+    <div className="flex justify-center items-center min-h-screen bg-background">
+      <div className={`bg-white rounded-2xl shadow-lg w-full max-w-md transition-transform duration-500 ${isActive ? "transform translate-x-full" : ""}`}>
+        {/* Sign In Form */}
+        <div className={`p-6 transition-opacity duration-500 ${isActive ? "opacity-0" : "opacity-100"}`}>
+          <h1 className="text-xl font-bold mb-4 text-primary">Sign In</h1>
           <form>
             <input
               type="email"
               placeholder="Email"
-              className="w-full p-3 border border-gray-300 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
+              className="w-full p-3 border border-gray-300 rounded-md mb-3 focus:outline-none focus:ring-2 focus:ring-primary transition"
             />
             <input
               type="password"
               placeholder="Password"
-              className="w-full p-3 border border-gray-300 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
+              className="w-full p-3 border border-gray-300 rounded-md mb-3 focus:outline-none focus:ring-2 focus:ring-primary transition"
             />
-            <Link to="#" className="text-purple-600 mb-4 block hover:underline">
+            <Link to="#" className="text-secondary mb-4 block hover:underline">
               Forgot your password?
             </Link>
-            <button className="w-full bg-purple-600 text-white py-2 rounded-md hover:bg-purple-700 transition duration-200">
-            <Link to="/">Sign In</Link>
-            </button>
+            <Link to="/" className="w-full">
+              <button className="w-full bg-primary text-white py-2 rounded-md hover:bg-highlight transition duration-200">
+                Sign In
+              </button>
+            </Link>
           </form>
-          <p className="mt-4 text-center">
+          <p className="mt-2 text-center">
             Don't have an account?{" "}
-            <button onClick={handleToggle} className="text-purple-600 hover:underline">
+            <button onClick={handleToggle} className="text-secondary hover:underline">
               Sign Up
             </button>
           </p>
         </div>
 
-        <div className={`p-8 transition-opacity duration-500 ${isActive ? "opacity-100" : "opacity-0"}`}>
-          <h1 className="text-2xl font-bold mb-6">Create Account</h1>
+        {/* Sign Up Form */}
+        <div className={`p-6 transition-opacity duration-500 ${isActive ? "opacity-100" : "opacity-0"}`}>
+          <h1 className="text-xl font-bold mb-4 text-primary">Create Account</h1>
           <form>
             <input
               type="text"
               placeholder="Name"
-              className="w-full p-3 border border-gray-300 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
+              className="w-full p-3 border border-gray-300 rounded-md mb-3 focus:outline-none focus:ring-2 focus:ring-primary transition"
             />
             <input
               type="email"
               placeholder="Email"
-              className="w-full p-3 border border-gray-300 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
+              className="w-full p-3 border border-gray-300 rounded-md mb-3 focus:outline-none focus:ring-2 focus:ring-primary transition"
             />
             <input
               type="password"
               placeholder="Password"
-              className="w-full p-3 border border-gray-300 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
+              className="w-full p-3 border border-gray-300 rounded-md mb-3 focus:outline-none focus:ring-2 focus:ring-primary transition"
             />
-            <button className="w-full bg-purple-600 text-white py-2 rounded-md hover:bg-purple-700 transition duration-200">
+            <button className="w-full bg-primary text-white py-2 rounded-md hover:bg-highlight transition duration-200">
               Sign Up
             </button>
           </form>
-          <p className="mt-4 text-center">
+          <p className="mt-2 text-center">
             Already have an account?{" "}
-            <button onClick={handleToggle} className="text-purple-600 hover:underline">
+            <button onClick={handleToggle} className="text-secondary hover:underline">
               Sign In
             </button>
           </p>

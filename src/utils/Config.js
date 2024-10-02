@@ -1387,19 +1387,21 @@ export const Data = [
   },
 ];
 
+import { IMG_CDN_URL } from "../utils/Config"; // Ensure this path is correct
+
 export const RestroCard = ({ i }) => {
   return (
-    <div className="flex flex-col text-[#006D77] shadow-lg p-4 bg-white rounded-lg w-auto h-[370px] transition-transform transform hover:scale-105 hover:shadow-xl">
+    <div className="flex flex-col text-[#006D77] shadow-lg p-4 bg-white rounded-lg w-full h-full sm:w-72  transition-transform transform hover:scale-105 hover:shadow-xl">
       <img
-        className="w-72 h-72 object-cover rounded-lg transition-transform duration-300 ease-in-out "
-        src={IMG_CDN_URL + i.cloudinaryImageId}
-        alt="Image description"
+        className="w-full h-48 object-cover rounded-lg transition-transform duration-300 ease-in-out"
+        src={`${IMG_CDN_URL}${i.cloudinaryImageId}`}
+        alt={`Image of ${i.name}`} // Improved alt text
       />
 
-      <div className="mt-4 text-2xl font-semibold max-w-xs">{i.name}</div>
+      <div className="mt-4 text-2xl font-semibold max-w-xs truncate">{i.name}</div>
 
       <div className="flex items-center mt-2 text-base">
-        <span className="mr-1">⭐</span>
+        <span className="mr-1 text-yellow-500">⭐</span>
         <span>{i.avgRating}</span>
       </div>
 

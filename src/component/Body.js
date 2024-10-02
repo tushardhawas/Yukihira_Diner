@@ -17,22 +17,16 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
 
   const combinedData = useFetchRes();
-  console.log(combinedData);
-  try {
-    useEffect(() => {
-      
-      if (combinedData.length > 0) {
-        setRestaurant(combinedData);
-        setFilteredList(combinedData); // Initially set the filtered list to the full restaurant list
-      }
-      else{
-        setRestaurant(Data);
-        setFilteredList(Data);
-      }
-    }, [combinedData]);
-  } catch (error) {
-    console.error("you got an error ", error);
-  }
+
+  useEffect(() => {
+    if (combinedData.length > 0) {
+      setRestaurant(combinedData);
+      setFilteredList(combinedData);
+    } else {
+      setRestaurant(Data);
+      setFilteredList(Data);
+    }
+  }, [combinedData]);
 
   const handleSearchChange = (e) => {
     const value = e.target.value;
@@ -43,30 +37,29 @@ const Body = () => {
   };
 
   return (
-    <>
-      <div className=" text-center p-5 bg-[#EDF6F9]  ">
+    <div className="bg-background min-h-screen py-5">
+      <div className="text-center mb-5">
         <input
-          className=" p-5 w-1/3 bg-[#FFDDD2] border border-green-900   text-[#006D77]  rounded-xl "
+          className="p-4 w-3/4 md:w-1/3 bg-accent border border-secondary text-primary rounded-xl shadow-md focus:outline-none focus:ring-2 focus:ring-primary transition-all"
           type="text"
           placeholder="Search Your Favorite Restaurant"
           onChange={handleSearchChange}
           value={searchText}
-        ></input>
+        />
       </div>
 
       {filteredList.length === 0 ? (
         <Shim />
       ) : (
-        <div className=" bg-[#EDF6F9] flex justify-center flex-wrap gap-10  ">
-       
+        <div className="bg-background flex justify-center flex-wrap gap-10 p-4">
           {filteredList.map((rest, index) => (
-            <Link to={"/restaurant/" + rest.info.id} key={index}>
+            <Link to={`/restaurant/${rest.info.id}`} key={index}>
               <RestroCard i={rest.info} />
             </Link>
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 };
 
