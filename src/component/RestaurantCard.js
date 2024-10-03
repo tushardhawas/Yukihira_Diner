@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { IMG_CDN_URL } from "../utils/Config";
 import useFetchResData from "../utils/useFetchResData";
+import { addItem } from "../utils/Slices/cartSlice";
+import { useDispatch } from "react-redux";
 
 export const RestaurantCard = () => {
   const { id } = useParams();
@@ -21,8 +23,10 @@ export const RestaurantCard = () => {
     }
   }, [menuData]);
 
-  const toggleDishDetails = (index) => {
-    setActiveDishIndex((prevIndex) => (prevIndex === index ? null : index));
+  const dispatch = useDispatch();
+
+  const handleAddToCart = (item) => {
+    dispatch(addItem(item));
   };
 
   return (
@@ -45,25 +49,19 @@ export const RestaurantCard = () => {
                     activeDishIndex === index ? "transform scale-100" : ""
                   }`}
                 >
-                  <div
-                    className="dish-header flex justify-between items-center cursor-pointer"
-                    onClick={() => toggleDishDetails(index)}
-                  >
-                    <span className="dish-name text-base font-semibold text-[#006D77] truncate max-w-[200px]">
-                      {dish.name}
-                    </span>
-                    <span className="arrow text-lg">
-                      {activeDishIndex === index ? "▲" : "▼"}
-                    </span>
-                  </div>
+                  {dish.name}
 
-                  {activeDishIndex === index && (
+                  {
                     <div className="dish-details mt-2 text-left">
                       <p className="dish-description text-gray-700 break-words text-sm max-w-[400px]">
                         {dish.description || "No description available"}
                       </p>
                       <p className="dish-price text-lg font-semibold text-[#E29578]">
-                        ₹{(dish.price ? dish.price / 100 : dish.defaultPrice / 100).toFixed(2)}
+                        ₹
+                        {(dish.price
+                          ? dish.price / 100
+                          : dish.defaultPrice / 100
+                        ).toFixed(2)}
                       </p>
                       {dish.ratings?.aggregatedRating?.ratingCountV2 && (
                         <p className="dish-rating text-gray-600 text-sm">
@@ -71,15 +69,24 @@ export const RestaurantCard = () => {
                           {dish.ratings.aggregatedRating.ratingCountV2})
                         </p>
                       )}
+                      <div className="text-right">
+                        <button
+                          onClick={()=>{handleAddToCart(item)}}
+                          className="p-2 m-1 bg-green-500"
+                        >
+                          Add
+                        </button>
+                        <button className="p-2 m-1 bg-red-500">Remove</button>
+                      </div>
                       {dish.imageId && (
                         <img
-                          className="mt-2 w-full h-auto max-w-[250px] object-cover rounded-lg"
+                          className="mt-2 w-20 h-20 max-w-[250px] object-cover rounded-lg"
                           src={`${IMG_CDN_URL}${dish.imageId}`}
                           alt={dish.name}
                         />
                       )}
                     </div>
-                  )}
+                  }
                 </li>
               ) : null;
             })

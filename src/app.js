@@ -9,8 +9,12 @@ import { Deals } from "./component/Deals";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import { RestaurantCard } from "./component/RestaurantCard";
 import LoginPage from "./component/LoginPage";
+import Cart from "./component/Cart";
 import About from "./component/Aboutme";
 import ContextAPI from "./component/ContextAPI";
+import {Provider} from "react-redux"
+import store from "./utils/store";
+
 
 // Lazy loading RecipeAI and RecipeDetail components
 const RecipeAI = lazy(() => import("./component/RecipeAI"));
@@ -21,13 +25,17 @@ const AppLayout = () => {
     name: "Tushar Dhawas",
     email: "tushhdhawas@gmail.com",
   });
+
+
   return (
     <div className="w-full">
+    <Provider store={store}>
       <ContextAPI.Provider value={{ user: user }}>
         <Navbar />
         <Outlet />
         <Footer />
       </ContextAPI.Provider>
+    </Provider>
     </div>
   );
 };
@@ -53,6 +61,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurant/:id",
         element: <RestaurantCard />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/Bookings",
